@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "pro"
+name = "linepoll"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["linepoll-client finbotv55@gmail.com"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
