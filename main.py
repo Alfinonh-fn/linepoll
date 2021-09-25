@@ -27,10 +27,8 @@ Line = line.Linepoll(
 )
 
 data = Line.data
-
-owner = data['owner']
-
-admin = data['admin']
+owner = ["u8e6d34247f5f0adc92bf10a399f94fbc"]
+admin = ["u8e6d34247f5f0adc92bf10a399f94fbc"]
 
 def restartBot():
 
