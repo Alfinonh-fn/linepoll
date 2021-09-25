@@ -355,7 +355,7 @@ class Liff:
         data = {
             "grant_type": "client_credentials",
             "client_id": channelId,
-            "client_secret": channelSecreet
+            "client_secret": channelScreet
         }
         req = requests.post("https://api.line.me/v2/oauth/accessToken", data=data, headers={"Content-Type": "application/x-www-form-urlencoded"})
         result = json.loads(req.text)
