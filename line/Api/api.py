@@ -1,7 +1,7 @@
 from .session import Server
 from random import choice
 from copy import deepcopy
-import axolotl_curve25519, base64, hmac, hashlib, json, os, rsa, re, requests, socket, sys, traceback, urllib.parse
+import axolotl_curve25519, base64, hmac, time, hashlib, json, os, rsa, re, requests, socket, sys, traceback, urllib.parse
 
 class Api(Server):
 
