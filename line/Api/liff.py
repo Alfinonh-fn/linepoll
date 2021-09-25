@@ -147,7 +147,7 @@ class ChannelLoginResult(object):
             self.expires_in   = map_array.get('expires_in', None)
             self.token_type   = map_array.get('token_type', None)
         except:
-            self.access_token,self.expires_in,self.token_type=self.access_token2,self.expires_in2,selftoken_type2
+            self.access_token,self.expires_in,self.token_type=self.access_token2,self.expires_in2,self.token_type2
 
     def write(self):
         return {'access_token':self.access_token,'expires_in':self.expires_in,'token_type':self.token_type}
