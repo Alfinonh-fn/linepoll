@@ -16,3 +16,7 @@ html5lib
 mechanize
 gtts
 pafy
+rsa
+thriftpy2
+tweepy
+ply
