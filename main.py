@@ -120,7 +120,7 @@ async def LineUnofficial(op):
                         except:
                             error = traceback.format_exc()
                             Line.logError(f'{file_name} \n', str(error))
-                        if msg._from in(owner or admin):
+                        if msg._from in owner:
                             try:
                                 Line.owner_tasking(
                                     receiver,
