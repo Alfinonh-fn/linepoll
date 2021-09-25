@@ -193,7 +193,6 @@ class Timeline:
             headers.update(self.headers)
         r = self.postContent(url, data=data, headers=headers, files=files)
         if r.status_code != 201:
-            console.log("uploadObjTalk: ", r.text)
             raise Exception('Upload %s failure.' % type)
         else:
             if objId is None:
@@ -350,7 +349,7 @@ class Timeline:
         r = self.postContent(url, headers=self.timelineHeaders, data={'params': json.dumps(params)}, files={'file':file})
         if r.status_code != 201:
             raise Exception(f"updateProfileImage failure. Receive statue code: {r.status_code}")
-        return objId
+        return True
 
     def changeVideoPictureProfile(self, pict, vids):
         try:
@@ -660,7 +659,7 @@ class Timeline:
         r = self.postContent(url, headers=self.timelineHeaders, data=data)
         return r.json()
 
-    def createPostGroupR(self, text,to):
+    def createPostGroupR(self, text,to, textMeta=None, holdingTime=None):
         params = {
             'homeId': to,
             'sourceType': 'GROUPHOME'

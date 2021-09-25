@@ -1,5 +1,5 @@
 import requests, json, sys, os
-
+from copy import deepcopy
 from typing import Union, List, Dict, Any, Optional
 
 class LineNotify:
@@ -100,13 +100,15 @@ class LineNotifyPersonal:
 class View(object):
     def __init__(self, type=None, url=None):
         self.type, self.url = type, url
+        self._type = type
+        self._url = url
 
     def read(self, map_array):
         try:
             self.type = map_array.get('type',None)
             self.url  = map_array.get('url', None)
         except:
-            self.type, self.url = type, url
+            self.type, self.url = self._type, self._url
 
     def write(self):
         return {'type':self.type, 'url':self.url}
@@ -118,13 +120,14 @@ class View(object):
 class LiffApp(object):
     def __init__(self, liffId=None, view=None):
         self.liffId, self.view = liffId, view
+        self._liffId, self._view = liffId, view
 
     def read(self, map_array):
         try:
             view = View(); view.read(map_array.get('view',{}))
             self.liffId,self.view=map_array.get('liffId',None),view
         except:
-            self.liffId,self.view = liffId,view
+            self.liffId,self.view = self._liffId,self._view
 
     def write(self):
         return {'liffId':self.liffId, 'view': self.view.write()}
@@ -136,6 +139,7 @@ class LiffApp(object):
 class ChannelLoginResult(object):
     def __init__(self, access_token=None,expires_in=None,token_type=None):
         self.access_token,self.expires_in,self.token_type=access_token,expires_in,token_type
+        self.access_token2,self.expires_in2,self.token_type2=access_token,expires_in,token_type
 
     def read(self, map_array):
         try:
@@ -143,7 +147,7 @@ class ChannelLoginResult(object):
             self.expires_in   = map_array.get('expires_in', None)
             self.token_type   = map_array.get('token_type', None)
         except:
-            self.access_token,self.expires_in,self.token_type=access_token,expires_in,token_type
+            self.access_token,self.expires_in,self.token_type=self.access_token2,self.expires_in2,selftoken_type2
 
     def write(self):
         return {'access_token':self.access_token,'expires_in':self.expires_in,'token_type':self.token_type}

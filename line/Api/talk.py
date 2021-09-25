@@ -549,7 +549,7 @@ class Talk(object):
         days, hours = divmod(hours, 24)
         return '%02d Hari %02d Jam %02d Menit %02d Detik' % (days, hours, mins, secs)
 
-    def unsend2(self, to, wait):
+    def unsend2(self, to, wait, msg):
         try:
             if msg.to not in wait['Unsend']:
                 wait['Unsend'][msg.to] = {'B':[]}
@@ -686,7 +686,7 @@ class Talk(object):
     def removeMessageFromMyHome(self, messageId):
         return self.talk.removeMessageFromMyHome(messageId)
 
-    def destroyMessage(self, chatId, messageId):
+    def destroyMessage(self, chatId, messageId, sessionId):
         return self.talk.destroyMessage(0, chatId, messageId, sessionId)
     
     def sendChatChecked(self, consumer, messageId):

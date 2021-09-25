@@ -243,7 +243,7 @@ class commands():
         """
         self commander
         """
-        cmd = self.replace_command(message.text, data)
+        cmd = self.replace_command(message.text, self.data)
         keywordlock = self.data['prefix']['key'] if self.data['prefix']['status'] else ''
         if cmd == 'speed':
             if self.limiting <= 3:
@@ -274,7 +274,7 @@ class commands():
             else:
                 self.fake_mention(message.to, mem)
         elif cmd.startswith('change'):
-            textt = self.remove_command(data, message.text, keywordlock)
+            textt = self.remove_command(self.data, message.text, keywordlock)
             texttl = textt.lower()
             if texttl.startswith('name'):
                 cname = texttl[5:]
@@ -300,7 +300,7 @@ class commands():
                 self.sendMessage(to, "Send picture...!")
                 self.data['image'][to] = True
         elif cmd.startswith('like'):
-            textt = self.remove_command(data, message.text, keywordlock)
+            textt = self.remove_command(self.data, message.text, keywordlock)
             texttl = textt.lower()
             cond = textt.split(' ')
             res = '╭•「Autolike」'
@@ -332,7 +332,7 @@ class commands():
                 self.data['autolike']['comment'] = textt
                 self.sendMessage(to, 'Post comment: %s' %(textt.lower()))
         elif cmd.startswith('unsend'):
-            textt = self.remove_command(data, message.text, keywordlock)
+            textt = self.remove_command(self.data, message.text, keywordlock)
             texttl = textt.lower()
             cond = textt.split(' ')
             res = '╭•「Destroy message」'
@@ -403,7 +403,7 @@ class commands():
                 self.logError(f"{os.path.splitext(os.path.basename(__file__))[0]}","{error}}")
         elif cmd.startswith('lurk'):
             try:
-                textt = self.remove_command(data, message.text, keywordlock)
+                textt = self.remove_command(self.data, message.text, keywordlock)
                 texttl = textt #.lower()
                 if to not in self.data['lurking']:
                     self.data['lurking'][to] = {'status': False,'time': None,'members': [],'reply': {'status': False,'message': "Hi @!, join us to chat..!"}}
