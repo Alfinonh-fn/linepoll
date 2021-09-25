@@ -112,7 +112,7 @@ class Api(Server):
         hasher = hashlib.md5()
         hasher.update(str_to_encode.encode('utf-8'))
         directory_name = hasher.hexdigest()
-        return f"line/Api/data/{directory_name}"
+        return f"{directory_name}"
 
     def sign_with_requests_session(self, type, data):
         lReq = self._func.LoginRequest()
