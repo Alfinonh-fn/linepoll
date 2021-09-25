@@ -107,7 +107,8 @@ class Linepoll(Api, Liff, Poll, Talk, Call, Shop, Timeline, commands):
 
         str_to_encode = self.dir_name(self.profile.mid)
         if Path(f"{str_to_encode}.json").exists():
-            self.data = File(f"{str_to_encode}.json", True, True, 4)
+            self._datttta = File(f"{str_to_encode}.json", True, True, 4)
+            self.data = self._datttta['group']
         else:
             db = File(f"{str_to_encode}.json", True, True, 4)
             self.data = self.endpoint.DEFAULT_DATA
