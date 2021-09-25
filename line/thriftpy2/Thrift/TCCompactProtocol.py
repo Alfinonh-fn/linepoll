@@ -22,7 +22,7 @@ from struct import pack, unpack
 
 from .._compat import binary_to_str, str_to_binary
 
-__all__ = ['TCompactProtocol', 'TCompactProtocolFactory']
+__all__ = ['TCCompactProtocol', 'TCompactProtocolFactory']
 
 CLEAR = 0
 FIELD_WRITE = 1
