@@ -489,7 +489,7 @@ class commands():
                 self.logError(f'{os.path.splitext(os.path.basename(__file__))[0]}', str(traceback.format_exc()))
 
     def public_tasking(self, receiver, msg):
-        if(receiver not in self.data['mute']):
+        if(msg.to not in self.data['mute']):
             if "/ti/g/" in msg.text.lower():
                 if self.data['autojoin']['ticket']:
                     link_re = re.compile('(?:line\:\/|line\.me\/R)\/ti\/g\/([a-zA-Z0-9_-]+)?')
